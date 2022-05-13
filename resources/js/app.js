@@ -2,9 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {CssBaseline} from "@mui/material";
 import {BrowserRouter, Route, Switch} from "react-router-dom";
-import Home from "./pages/Home";
-import About from "./pages/About";
+import Home from "./pages/Landing";
+import About from "./components/About";
 import Navbar from "./components/Navbar";
+import Landing from "./pages/Landing";
 
 function App() {
     return (
@@ -13,8 +14,8 @@ function App() {
             <BrowserRouter>
                 <Navbar/>
                 <Switch>
-                    <Route exact path="/" component={Home}/>
-                    <Route exact path="/about" component={About}/>
+                    <Route exact path="/" component={Landing}/>
+                    {/*<Route exact path="/about" component={About}/>*/}
                 </Switch>
             </BrowserRouter>
         </>
