@@ -1,26 +1,33 @@
-import {
-    Avatar,
-    Box,
-    Container,
-    Grid,
-    List, ListItem,
-    ListItemButton,
-    ListItemIcon,
-    ListItemText,
-    Typography
-} from "@mui/material";
+import {Avatar, Box, Container, Grid, ListItem, ListItemText, Typography} from "@mui/material";
 import {useStyles} from "./styles";
-import Animate from 'animate.css-react'
-import 'animate.css/animate.css'
 import ProfileAvatar from '../../../images/banner/right-image.png';
 import {NavLink} from "react-router-dom";
-import FacebookIcon from '@mui/icons-material/Facebook';
-import { Icon } from '@iconify/react';
+import {Icon} from '@iconify/react';
 
-import { fadeIn } from 'react-animations'
+const socialIcons = [
+    {
+        path: '/fb',
+        iconifyIcon: "cib:linkedin-in"
+    },
+    {
+        path: '/dr',
+        iconifyIcon: "icon-park-outline:dribble"
+    },
+    {
+        path: '/',
+        iconifyIcon: "akar-icons:twitter-fill"
+    },
+    {
+        path: '/',
+        iconifyIcon: "bxl:pinterest-alt"
+    },
+    {
+        path: '/',
+        iconifyIcon: "cib:facebook-f"
+    },
+]
 
 const Home = () => {
-
     const classes = useStyles()
     return (
         <Box className={classes.wrapper}>
@@ -59,42 +66,25 @@ const Home = () => {
                     <Grid item xs={4} textAlign='center'>
                         <Box className={classes.goDown}>
 
-                            <Animate
-                                appear="fadeInDown"
-                                durationAppear={1000}
-                                component="div" >
-                                <Box className={classes.arrow}></Box>
-                            </Animate>
+                            {/*<Animate*/}
+                            {/*    appear="fadeInDown"*/}
+                            {/*    durationAppear={1000}*/}
+                            {/*    component="div" >*/}
+                            {/*    <Box className={classes.arrow}></Box>*/}
+                            {/*</Animate>*/}
 
                         </Box>
                     </Grid>
                     <Grid item xs={4} textAlign='end'>
-
                         <Box className={classes.socialIconContainer}>
-                            <NavLink to='/fb' className={classes.socialIcon}>
-                                <Icon icon="cib:linkedin-in" />
-                            </NavLink>
-
-                            <NavLink to='/fb' className={classes.socialIcon}>
-                                <Icon icon="icon-park-outline:dribble" />
-                            </NavLink>
-
-                            <NavLink to='/fb' className={classes.socialIcon}>
-                                <Icon icon="akar-icons:twitter-fill" />
-                            </NavLink>
-
-                            <NavLink to='/fb' className={classes.socialIcon}>
-                                <Icon icon="bxl:pinterest-alt" />
-                            </NavLink>
-                            <NavLink to='/fb' className={classes.socialIcon}>
-                                <Icon icon="cib:facebook-f" />
-                            </NavLink>
+                            {
+                                socialIcons.map((item, key)=>(
+                                    <NavLink to={item.path} key={key} className={classes.socialIcon}>
+                                        <Icon icon={item.iconifyIcon} />
+                                    </NavLink>
+                                ))
+                            }
                         </Box>
-
-
-
-
-
                     </Grid>
                 </Grid>
 
