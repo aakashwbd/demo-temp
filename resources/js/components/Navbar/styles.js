@@ -1,13 +1,13 @@
 import {makeStyles} from "@mui/styles";
 
-export const useStyles = makeStyles(()=>({
+export const useStyles = makeStyles(() => ({
     navList: {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'end',
         textTransform: 'uppercase',
 
-        "& a":{
+        "& a": {
             color: 'white',
             textDecoration: 'none',
             fontWeight: 'bolder'
@@ -18,7 +18,7 @@ export const useStyles = makeStyles(()=>({
             flexDirection: "column",
             alignItems: "start",
 
-            "& a":{
+            "& a": {
                 color: 'black',
             },
         },
@@ -33,5 +33,9 @@ export const useStyles = makeStyles(()=>({
 
         },
     },
+
+    active: {
+       border: '1px solid red'
+    }
 }))
 
